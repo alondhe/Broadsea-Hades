@@ -2,7 +2,7 @@
 FROM rocker/rstudio:4.2.1
 MAINTAINER Lee Evans <evans@ohdsi.org>
 
-ENV PASSWORD_FILE
+ENV PASSWORD_FILE=mypass
 RUN export PASSWORD="$(</run/secrets/HADES_PASSWORD)"
 
 # install OS dependencies including java and python 3
