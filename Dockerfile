@@ -2,8 +2,8 @@
 FROM rocker/rstudio:4.2.1
 MAINTAINER Lee Evans <evans@ohdsi.org>
 
-ENV PASSWORD_FILE=mypass
-RUN export PASSWORD="$(</run/secrets/HADES_PASSWORD)"
+ENV PASSWORD_FILE="/run/secrets/HADES_PASSWORD"
+RUN export PASSWORD="$(<$PASSWORD_FILE)"
 
 # install OS dependencies including java and python 3
 RUN apt-get update && apt-get install -y openjdk-11-jdk liblzma-dev libbz2-dev libncurses5-dev curl python3-dev python3.venv \
